@@ -13,18 +13,20 @@ pipeline {
 
   stages {
     stage('Clone') {
-        echo "Cloning the WebApp Repository"
-        checkout scm
+        steps {
+            echo "Cloning the WebApp Repository"
+            checkout scm
+        }
     }
     
-    stage ('Build') {
+    stage('Build') {
         steps {
             sh 'docker build -t ${IMAGE_NAME}:${IMAGE_VERSION}'
         }
     }
     stage('Scan') {
       steps {
-        sh 'trivy image jenkins/jenkins'
+        sh 'trivy image ${IMAGE_NAME}:${IMAGE_VERSION}'
       }
     }
   }
