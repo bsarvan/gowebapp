@@ -1,11 +1,11 @@
 pipeline {
   agent any
-    parameters {
-        environment {
-            IMAGE_NAME = 'webapp'
-            IMAGE_VERSION = '1.0'
-        }
-    }
+    
+  environment {
+      IMAGE_NAME = 'webapp'
+      IMAGE_VERSION = '1.0'
+  }
+
 
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
