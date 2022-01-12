@@ -21,7 +21,7 @@ pipeline {
     
     stage('Build') {
         steps {
-            sh 'docker build -t ${IMAGE_NAME}:${IMAGE_VERSION}'
+            sh 'docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} .'
         }
     }
     stage('Scan') {
