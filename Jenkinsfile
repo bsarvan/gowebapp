@@ -26,7 +26,7 @@ pipeline {
     }
     stage('Scan') {
       steps {
-        sh 'trivy image ${IMAGE_NAME}:${IMAGE_VERSION}'
+        sh 'sudo trivy image ${IMAGE_NAME}:${IMAGE_VERSION}'
       }
     }
   }
